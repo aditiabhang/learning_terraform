@@ -104,3 +104,10 @@ A Typical Terraform file consists of:
                 protocol   = "-1"
             }
         }
+        
+---------------------------------------------
+## Terraform Styling:
+- A clear documentation is provided on the offical website which talks about how the styling in Terraform should be, and good to have. 
+- Quick Tips:
+
+<img width="830" alt="Screen Shot 2020-10-13 at 4 21 48 PM" src="https://user-images.githubusercontent.com/51350594/95917665-3c0e4b00-0d70-11eb-9620-3e1a1008aa7e.png">
