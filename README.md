@@ -118,4 +118,5 @@ A Typical Terraform file consists of:
 - The commands to do so:
 
 > terraform plan -destroy -out destroy.plan
+
 > terraform apply destroy.plan
