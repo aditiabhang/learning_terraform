@@ -14,13 +14,15 @@ Terraform is for managing the base infrastruture itself, and is not reponsible f
 
 - Data struture used in Terraform : Graph. **Directed Acyclic Graph**.
 
-<img width="800" alt="Screen Shot 2020-10-13 at 3 01 07 PM" src="https://user-images.githubusercontent.com/51350594/95910053-1760a600-0d65-11eb-869d-59c6ad27e132.png">
+<img width="714" alt="Screen Shot 2020-10-13 at 3 01 07 PM" src="https://user-images.githubusercontent.com/51350594/95917190-788d7700-0d6f-11eb-9d07-d9a3619659d8.png">
+
+
 
 ### Terraform Plan
 
 - The **Plan** step is critical because it figures out what needs to be done and in what order. Then, Terraform uses the provider to actually apply the plan and make the changes the needed. 
 
-<img width="800" alt="Screen Shot 2020-10-13 at 2 57 53 PM" src="https://user-images.githubusercontent.com/51350594/95910055-17f93c80-0d65-11eb-96f5-8a556f7ee5ce.png">
+<img width="706" alt="Screen Shot 2020-10-13 at 2 57 53 PM" src="https://user-images.githubusercontent.com/51350594/95917195-79260d80-0d6f-11eb-8dd8-545623b10d8d.png">
 
 > $ terraform plan
 
