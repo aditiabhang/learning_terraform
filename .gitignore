@@ -1,0 +1,5 @@
+.aws/
+.terraform/
+.terraform.
+terraform.tfstate.backup
+terraform.tfstate
