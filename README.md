@@ -23,9 +23,11 @@ Terraform is for managing the base infrastruture itself, and is not reponsible f
 <img width="800" alt="Screen Shot 2020-10-13 at 2 57 53 PM" src="https://user-images.githubusercontent.com/51350594/95910055-17f93c80-0d65-11eb-96f5-8a556f7ee5ce.png">
 
 > $ terraform plan
+
 ![Screen Shot 2020-10-13 at 3 05 07 PM](https://user-images.githubusercontent.com/51350594/95910343-8a6a1c80-0d65-11eb-85d6-47461e33d829.png)
 
 - Plan to destroy: Shows the plan on what all resources will be destroyed
+
 >> $ terraform plan -destroy
 
 - **-out** parameter: Outputs the plan in a new file *.plan* that contains the plan which will be applied. The output file is in **binary format**
@@ -36,6 +38,7 @@ Terraform is for managing the base infrastruture itself, and is not reponsible f
 - Important to realise that is used to refer two different things: 1) Reality of your infrastructure, what is the state of the resources in AWS, IP address, instance types, bucket names, etc 2) The local representation the Terraform keeps, i.e the state file. 
 - The local **.tfstate** file simple tells that this is everything Terraform knows and thinks is the current state up in the AWS.  
 - Invertigate the terraform state using the command:
+
 > $ terraform state
     
 This gives us the option to list resources in the state, to move an item, to push/pull, remove etc. 
@@ -43,6 +46,7 @@ This gives us the option to list resources in the state, to move an item, to pus
 ### Terraform Graph
 - Terraform builds a graph as a part of its plan.
 - It helps to get insight what actually is going to happen by exporting that graph and rendering it visually. 
+
 > $ terraform graph
 - The output is actually a DOT file. We get to visualize the DOT file into a graph by using Graphviz website. http://www.webgraphviz.com/
 - Won't add it in here, but the results are amazing. 
@@ -51,6 +55,7 @@ This gives us the option to list resources in the state, to move an item, to pus
 - Now that the resources are created, we will destroy the plan but first outputting the plan in to plan file. 
 $ terraform plan -destroy -out=first_plan.plan
 - Now we apply the plan to destroy.
+
 > $ terraform apply 
 
 ---------------------------------------------
