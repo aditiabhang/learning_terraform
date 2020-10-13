@@ -111,3 +111,11 @@ A Typical Terraform file consists of:
 - Quick Tips:
 
 <img width="830" alt="Screen Shot 2020-10-13 at 4 21 48 PM" src="https://user-images.githubusercontent.com/51350594/95917665-3c0e4b00-0d70-11eb-9620-3e1a1008aa7e.png">
+
+---------------------------------------------
+## Terraform Destroy
+- It is a good practice to remove/destroy all the running AWS resources to avoid getting charged for it. 
+- The commands to do so:
+
+> terraform plan -destroy -out destroy.plan
+> terraform apply destroy.plan
