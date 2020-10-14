@@ -120,3 +120,67 @@ A Typical Terraform file consists of:
 > terraform plan -destroy -out destroy.plan
 
 > terraform apply destroy.plan
+
+---------------------------------------------
+## Variables:
+- We could define a variable for an ami of an instance or for an asg resource. 
+- Below example also defines a default, so it also have a base version.
+
+        variable "webserver_ami" {
+            type = string
+            default = "ami-abc123"  
+        }
+
+- We can further use this variable in the instance config, like below:
+
+        resource "aws_instance" "web" {
+            ami = var.webserver_ami
+            ...
+        }
+
+- Using variables can be handy way of organizing the code by keeping together anything you might change often, like ami id, or whitelisted ip addresses in the security group. 
+- The default value can be overriden in command line by by passing the -var parameter:
+
+> terraform apply -var="webserver_ami=ami-123456"
+
+---------------------------------------------
+## Modules:
+- With modules, we can bundle some of the logical block of code, and then pass in as an arguments that apply for that block.
+-  Bit like - custom resources.
+- All terraform code actually has at least one module i.e default module, called as root. 
+- The content of a module is encapsulated and works like a black box, so if yu need access the data elsewhere in the code, you need to set up as an input of as an output in the module.
+- It doesn't really matter what's inside the module, what matters is how to talk to it. 
+
+        module "web_server" {
+            source = "./modules/servers"
+
+            web_ami = "ami-123456"
+            server_name = "prod_web"
+        }
+### Talking to modules: Input variables:
+
+        variable "web_ami" {
+            type = string
+            default = "ami-abc123"
+        }
+
+        variable "server_name" {
+            type = string
+        }
+
+### Talking to modules: Output variables:
+- NOTE: You cant easily access the data unless it is set up as an output value
+
+        output "instance_public_ip" {
+            value = aws_instance.web_app.public_ip
+        }
+
+        output "app_bucket" {
+            value = aws_s3_bucket.web_app.bucket
+        }
+
+### What's in a Module?
+- main.tf
+- variable.tf
+- outputs.tf
+- README.md
